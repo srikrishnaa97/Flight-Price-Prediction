@@ -1,0 +1,184 @@
+/*the container must be positioned relative:*/
+.autocomplete {
+    position: relative;
+    display: inline-block;
+  }
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+  }
+  
+  /*when hovering an item:*/
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+  }
+  
+  /*when navigating through the items using the arrow keys:*/
+  .autocomplete-active {
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+  }
+  .left {
+    position: absolute;
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-color: cornflowerblue;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+.about-button, .back-button {
+  position: relative;
+  top: 5vh;
+  right: 5%;
+}
+
+.header {
+    margin-top: 8vh;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: firebrick;
+    width: 90%;
+    margin-left: 4%;
+    background-color: cornsilk;
+    text-align: center;
+    vertical-align: middle;
+}
+#about:hover, #back:hover {
+  background-color: firebrick;
+  color: whitesmoke;
+}
+.about-page {
+  position: relative;
+  top: 25vh;
+  left: 5vw;
+  width: 70vh;
+}
+.about-page h2 {
+  color: whitesmoke;
+  border-bottom-style: solid;
+  border-bottom-color: firebrick;
+  padding-bottom: 1vh;
+}
+.about-page p {
+  color: darkslategray;
+  line-height: 3.5vh;
+}
+.plane-symbol i {
+    margin-left: 21vw;
+    margin-top: 25vh;
+    color: whitesmoke;
+}
+.rupee-symbol i {
+    margin-left: 22vw;
+    margin-top: 7vh;
+    color: whitesmoke;
+}
+.author-section {
+    position: absolute;
+    float: right;
+    bottom: 1vh;
+    right: 0px;
+    font-size: 2vh;
+    color: lightblue;
+}
+.right {
+    float: right;
+    width: 50%;
+    height: 100%;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+.form-input-text {
+    color: slategray;
+    margin-bottom: 1vh;
+}
+input[type=text], input[type=date], input[type=time] {
+    border-radius: 3px;
+    height: 4vh;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-color: lightskyblue;
+}
+input[type=text] {
+    width: 20vw;
+    height: 4vh;
+    font-family: inherit;
+    font-size: inherit;
+}
+input[type=date] {
+    width: 10vw;
+    height: 4vh;
+}
+
+.right p {
+    margin-left: 10vw;
+    margin-top: 10vh;
+}
+.next-button-container, input[type=submit] {
+    position: absolute;
+    top: 75vh;
+    right: 10vw;
+}
+.prev-button-container, .reset-button-container {
+    position: absolute;
+    top: 75vh;
+    left: 58vw;
+}
+button, input[type=submit] {
+    width: 7vw;
+    height: 6vh;
+    float: right;
+    margin-right: 2vw;
+    border-radius: 5px;
+}
+button:hover, input[type=submit]:hover {
+    cursor: pointer;
+    background-color: cornflowerblue;
+}
+.right form {
+    padding-left: 7vw;
+}
+.form-input-container {
+    margin-top: 2vh;
+}
+.autocomplete {
+    margin-top: 1vh;
+}
+.page4 p, .prediction_failure {
+    position: fixed;
+    top: 20vh;
+    left: 54.5vw;
+}
+.result {
+    position: fixed;
+    top: 44vh;
+    left: 70vw;
+    width: 25vh;
+    border-radius: 20vh;
+    border-style: solid;
+    text-align: center;
+    vertical-align: middle;
+}
