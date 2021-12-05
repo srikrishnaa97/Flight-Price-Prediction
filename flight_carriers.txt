@@ -1,0 +1,117 @@
+<None>
+Aer Lingus
+Aeroflot Russian Airlines
+Air Astana
+Air Canada
+Air China
+Air Connect
+Air Europa
+Air France
+Air India
+Air India Express
+Air Mauritius
+Air Pacific
+Air Seychelles
+AirArabia
+AirAsia
+Alaska Airlines
+Alitalia
+All Nippon Airways
+American Airlines
+Asiana Airlines
+Austrian Airways
+Azerbaijan Airlines
+Bangkok Airways
+Belavia Belarusian
+Biman Bangladesh
+British Airways
+Cathay Pacific Airways
+China Airlines
+China Eastern Airlines
+China Southern Airlines
+Delta Airlines
+Deutsche Bahn Ag
+Dragonair
+EVA Airways
+Egypt Airways
+El-Al-Israel Airlines
+Emirates Airlines
+Ethiopian Airlines
+Etihad Airways
+Eurowings
+Finnair
+FlyDubai
+Flybe
+GF
+Garuda Indonesia
+GoAir
+Gulf Airways
+Hahn Air Systems
+Hainan Airlines
+Hong Kong Airlines
+Hong Kong Express Airways
+Iberia Airlines
+Indigo
+Japan Airlines
+Jat Airways
+Jazeera Airways
+Jeju Air
+JetBlue Airways
+Jetstar Airways
+Jetstar Asia
+Jetstar Pacific
+Juneyao Airlines
+KLM Airlines
+Kam Air
+Kenya Airways
+Korean Airways
+Kuwait Airways
+LOT Polish Airlines
+Livingston Spa
+Lufthansa Airways
+Luxair
+MALINDO AIRWAYS
+MH
+Malayasian Airways
+Myanmar Airways Intl
+National Air Services
+Nepal Airways
+Oman Air
+Onur Air
+Pegasus Airlines
+Precision Airlines
+Qantas Airways
+Qatar Airways
+Royal Air Maroc
+Royal Brunei Airlines
+Royal Jordanian
+Rwandair
+S7 Airlines
+Saudi Arabian Airlines
+Scandinavian Airlines
+Scoot
+Shandong Airlines
+Shanghai Airlines
+Shenzhen Airlines
+Sichuan Airlines
+Silk Air
+Singapore Airlines
+South African Airways
+SpiceJet
+SriLankan Airlines
+Swiss
+TAP - Air Portugal
+Thai Airways International
+Thai Lion Air
+Thai Smile
+Trujet
+Turkish Airlines
+Ukraine Intl Airlines
+Uni Airways
+United Airlines
+Ural Airlines
+Uzbekistan Airways
+Vietnam Airlines
+Virgin Atlantic Airways
+Vistara
+WestJet Airlines

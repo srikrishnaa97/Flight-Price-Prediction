@@ -1,0 +1,405 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<title>Flight Price Predictor</title>
+{% endblock %}
+
+{% block body %}
+<div class="left">
+  <div class="about-button">
+    <button type="button" id="about">About</button>
+  </div>
+  <div class="back-button">
+    <button type="button" id="back">Back</button>
+  </div>
+  <div class=title-page>
+  <div class="plane-symbol">
+  <i class="fa fa-plane" style="font-size: 12vh;"></i>
+  </div>
+  <div class="header">
+  <h2>Flight Price Predictor</h2>
+  </div>
+  <div class="rupee-symbol">
+      <i class="fa fa-rupee" style="font-size: 12vh;"></i>
+  </div>
+  </div>
+  <div class="about-page">
+    <h2>About</h2>
+    <p>
+      This is a sample end to end implementation of flight fare price prediction machine learning project.
+      Using the EaseMyTrip website data set on <a href="https://www.kaggle.com/promptcloud/easemytrip-flight-fare-details-2020" target="_blank">kaggle</a>,
+      I trained a Random Forest Regressor to predict the flight fare prices (in Indian Rupee) between source and destination cities based on a rich array of feature variables
+      such as date and time of arrival and departure, date of search, layovers and the corresponding flight carriers. A fair bit of data 
+      preparation was needed due to the variety in the data types of the feature variables. Please visit my github to view the source
+      files and the accompanying jupyter notebook.
+    </p>
+  </div>
+  <div class="author-section">
+      <a href="https://github.com/srikrishnaa97" target="_blank"><i class="fa fa-github"></i></a><span class="my_name">Srikrishnaa J [2021]</span>
+  </div>
+</div>
+<div class="right">
+  <div class="form-content-container">
+  <p>Please fill in the details of your journey:</p>
+  <form id="form" autocomplete="off" action="{{url_for('predict')}}" method="POST">
+  <div class="page1">
+      <div class="form-input-container" id="source-container">
+      <span class="form-input-text">Source:</span> 
+      <div class="autocomplete">
+          <input id="Source" type="text" name="Source" placeholder="Source">
+      </div><br>
+      </div>
+
+      <div class="form-input-container" id="destination-container">
+      <span class="form-input-text">Destination:</span> 
+      <div class="autocomplete">
+          <input id="Destination" type="text" name="Destination" placeholder="Destination">
+      </div><br>
+      </div>
+
+      <div class="form-input-container" id="crawldate-container">
+      <span class="form-input-text">Date of Search:</span>
+      <input type="date" id="Crawl Date" name="Crawl Date" min="2020-01-01" required><br>
+      </div>
+
+      <div class="form-input-container" id="departuredate-container">
+      <span class="form-input-text">Departure Date:</span>
+      <input type="date" id="Departure Date" name="Departure Date" min="2020-01-01" required><br>
+      </div>
+
+      <div class="form-input-container" id="departuretime-container">
+      <span class="form-input-text">Departure Time:</span>
+      <input type="time" id="Departure Time" name="Departure Time"><br>
+      </div>
+
+      <div class="form-input-container" id="arrivaldate-container">
+      <span class="form-input-text">Arrival Date:</span> 
+      <input type="date" id="Arrival Date" name="Arrival Date" min="2020-01-01" required><br>
+      </div>
+
+      <div class="form-input-container" id="arrivaltime-container">
+      <span class="form-input-text">Arrival Time:</span>
+      <input type="time" id="Arrival Time" name="Arrival Time"><br>
+      </div>
+
+      </div>
+
+      <div class="page2">
+
+      <div class="form-input-container" id="layovers-container">
+      <span class="form-input-text">Via:</span> <br>
+      <div class="form-input-container" id="layover1-container">
+      <span class="form-input-text">Layover 1:</span>
+      <div class="autocomplete">
+          <input id="Layover1" type="text" name="Layover1" placeholder="Layover 1">
+      </div><br>
+      </div>
+      <div class="form-input-container" id="layover2-container">
+      <span class="form-input-text">Layover 2:</span>
+      <div class="autocomplete">
+          <input id="Layover2" type="text" name="Layover2" placeholder="Layover 2">
+      </div><br>
+      </div>
+      <div class="form-input-container" id="layover3-container">
+      <span class="form-input-text">Layover 3:</span>
+      <div class="autocomplete">
+          <input id="Layover3" type="text" name="Layover3" placeholder="Layover 3">
+      </div><br>
+      </div>
+      </div>
+
+      </div>
+
+      <div class="page3">
+
+      <div class="form-input-container" id="carriers-container">
+      <span class="form-input-text">Select Flight Carriers:</span> <br>
+      <div class="form-input-container" id="carrier1-container">
+      <span class="form-input-text">Flight Carrier 1:</span>
+      <div class="autocomplete">
+          <input id="Flight_Carrier1" type="text" name="Flight_Carrier1" placeholder="Flight Carrier 1">
+      </div><br>
+      </div>
+
+      <div class="form-input-container" id="carrier2-container">
+      <span class="form-input-text">Flight Carrier 2:</span>
+      <div class="autocomplete">
+          <input id="Flight_Carrier2" type="text" name="Flight_Carrier2" placeholder="Flight Carrier 2">
+      </div><br>
+      </div>
+
+      <div class="form-input-container" id="carrier3-container">
+      <span class="form-input-text">Flight Carrier 3:</span>
+      <div class="autocomplete">
+          <input id="Flight_Carrier3" type="text" name="Flight_Carrier3" placeholder="Flight Carrier 3">
+      </div><br>
+      </div>
+
+      <div class="form-input-container" id="carrier4-container">
+      <span class="form-input-text">Flight Carrier 4:</span>
+      <div class="autocomplete">
+          <input id="Flight_Carrier4" type="text" name="Flight_Carrier4" placeholder="Flight Carrier 4">
+      </div><br>
+      </div>
+      </div>
+
+      </div>
+      </div>
+
+      <div class="buttons-section">
+
+      <div class="next-button-container" id="next-button-container">
+          <button type="button" id="next-button">Next</button>
+      </div>
+      
+      <div class="prev-button-container" id="prev-button-container">
+          <button type="button" id="prev-button">Previous</button>
+      </div>
+
+      <div class="reset-button-container" id="reset-button-container">
+          <button type="button" id="reset-button">Reset</button>
+      </div>
+      
+      <div class="form-input-container" id="submit-container">
+      <input type="submit" value="Submit" id="submit">
+      </div>
+      </div>
+  </form>
+
+<div class="page4">
+<div class="prediction_res">
+{% if prediction|int(-1) != -1 %} 
+<p>The predicted price of your journey is:</p>
+            <div class="result">
+            <h1 class="prediction_res"><i class="fa fa-rupee"></i>{{prediction}}</h1>
+            </div>
+{% else %}
+{% if prediction == [] %}
+<span></span>
+{% else %}
+<span class="prediction_failure">Error occurred while predicting! {{prediction}}</span>
+{% endif %}
+{% endif %}
+</div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    var currPage = 1;
+        var pathArray = window.location.pathname;
+        var fullpath = window.location.protocol+'//'+window.location.host+'/'
+        if (pathArray == '/predict') {
+          currPage = 4;
+          $(".form-content-container").hide()
+          $(".page"+currPage).show();
+          $(".next-button-container").hide();
+          $(".prev-button-container").hide();
+          $("#submit-container").hide();
+          $(".reset-button-container").show();
+          $(".about-page").hide();
+          $(".title-page").hide();
+          $(".title-page").show();
+          $(".about-button").show();
+          $(".back-button").hide();
+          $("#reset-button").on("click", function () {
+            window.location.replace(fullpath);
+        });
+        }
+        else {
+          $( document ).ready(function() {
+            $(".page1").hide();
+            $(".page2").hide();
+            $(".page3").hide();
+            $(".page4").hide();
+            $(".about-page").hide();
+            $(".title-page").hide();
+            $(".title-page").show();
+            $(".page1").show();
+            $(".about-button").show();
+            $(".back-button").hide();
+            $(".next-button-container").show();
+            $(".prev-button-container").hide();
+            $(".reset-button-container").hide();
+            $("#submit-container").hide();
+            currPage = 1;
+        });
+
+        $("#next-button").on("click", function() {
+            if ( currPage < 3 ) {
+                $(".page1").hide();
+                $(".page2").hide();
+                $(".page3").hide();
+                $(".page4").hide();
+                currPage = currPage + 1;
+                $(".page"+currPage).show();
+                if (currPage == 2) {
+                    $(".next-button-container").show();
+                    $(".prev-button-container").show();
+                    $("#submit-container").hide();
+                    $(".reset-button-container").hide();
+                    
+                }
+
+                if (currPage == 3) {
+                    $(".next-button-container").hide();
+                    $(".prev-button-container").show();
+                    $("#submit-container").show();
+                    $(".reset-button-container").hide();
+                    
+                }
+                
+            }
+        });
+
+        $("#prev-button").on("click", function() {
+            if ( currPage > 1 ) {
+                $(".page1").hide();
+                $(".page2").hide();
+                $(".page3").hide();
+                $(".page4").hide();
+                currPage = currPage - 1;
+                $(".page"+currPage).show();
+                if (currPage == 2) {
+                    $(".next-button-container").show();
+                    $(".prev-button-container").show();
+                    $("#submit-container").hide();
+                    $(".reset-button-container").hide();
+                    
+                }
+                if (currPage == 1) {
+                    $(".next-button-container").show();
+                    $(".prev-button-container").hide();
+                    $("#submit-container").hide();
+                    $(".reset-button-container").hide();
+                    
+                }
+                
+            }
+        });
+        }
+
+        
+        $("#about").on("click", function() {
+            $(".title-page").hide();
+            $(".about-button").hide();
+            $(".about-page").show();
+            $(".back-button").show();
+        });
+        $("#back").on("click", function() {
+            $(".title-page").show();
+            $(".about-button").show();
+            $(".about-page").hide();
+            $(".back-button").hide();
+        });
+
+    function autocomplete(inp, arr) {
+      /*the autocomplete function takes two arguments,
+      the text field element and an array of possible autocompleted values:*/
+      var currentFocus;
+      /*execute a function when someone writes in the text field:*/
+      inp.addEventListener("input", function(e) {
+          var a, b, i, val = this.value;
+          /*close any already open lists of autocompleted values*/
+          closeAllLists();
+          if (!val) { return false;}
+          currentFocus = -1;
+          /*create a DIV element that will contain the items (values):*/
+          a = document.createElement("DIV");
+          a.setAttribute("id", this.id + "autocomplete-list");
+          a.setAttribute("class", "autocomplete-items");
+          /*append the DIV element as a child of the autocomplete container:*/
+          this.parentNode.appendChild(a);
+          /*for each item in the array...*/
+          for (i = 0; i < arr.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+              /*create a DIV element for each matching element:*/
+              b = document.createElement("DIV");
+              /*make the matching letters bold:*/
+              b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+              b.innerHTML += arr[i].substr(val.length);
+              /*insert a input field that will hold the current array item's value:*/
+              b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+              /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function(e) {
+                  /*insert the value for the autocomplete text field:*/
+                  inp.value = this.getElementsByTagName("input")[0].value;
+                  /*close the list of autocompleted values,
+                  (or any other open lists of autocompleted values:*/
+                  closeAllLists();
+              });
+              a.appendChild(b);
+            }
+          }
+      });
+      /*execute a function presses a key on the keyboard:*/
+      inp.addEventListener("keydown", function(e) {
+          var x = document.getElementById(this.id + "autocomplete-list");
+          if (x) x = x.getElementsByTagName("div");
+          if (e.keyCode == 40) {
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++;
+            /*and and make the current item more visible:*/
+            addActive(x);
+          } else if (e.keyCode == 38) { //up
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--;
+            /*and and make the current item more visible:*/
+            addActive(x);
+          } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+            if (currentFocus > -1) {
+              /*and simulate a click on the "active" item:*/
+              if (x) x[currentFocus].click();
+            }
+          }
+      });
+      function addActive(x) {
+        /*a function to classify an item as "active":*/
+        if (!x) return false;
+        /*start by removing the "active" class on all items:*/
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        /*add class "autocomplete-active":*/
+        x[currentFocus].classList.add("autocomplete-active");
+      }
+      function removeActive(x) {
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (var i = 0; i < x.length; i++) {
+          x[i].classList.remove("autocomplete-active");
+        }
+      }
+      function closeAllLists(elmnt) {
+        /*close all autocomplete lists in the document,
+        except the one passed as an argument:*/
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+          if (elmnt != x[i] && elmnt != inp) {
+            x[i].parentNode.removeChild(x[i]);
+          }
+        }
+      }
+      /*execute a function when someone clicks in the document:*/
+      document.addEventListener("click", function (e) {
+          closeAllLists(e.target);
+      });
+    }
+    
+    var cities = {{cities|safe}};
+    autocomplete(document.getElementById("Source"), cities);
+    autocomplete(document.getElementById("Destination"), cities);
+    autocomplete(document.getElementById("Layover1"), cities);
+    autocomplete(document.getElementById("Layover2"), cities);
+    autocomplete(document.getElementById("Layover3"), cities);
+    var carriers = {{flight_carriers|safe}};
+    autocomplete(document.getElementById("Flight_Carrier1"), carriers);
+    autocomplete(document.getElementById("Flight_Carrier2"), carriers);
+    autocomplete(document.getElementById("Flight_Carrier3"), carriers);
+    autocomplete(document.getElementById("Flight_Carrier4"), carriers);
+</script>
+{% endblock %}

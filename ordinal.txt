@@ -1,0 +1,12 @@
+Number Of Stops
+Departure Month
+Departure Week
+Departure Hour
+Departure Minute
+Departure Dayofweek
+Arrival Month
+Arrival Week
+Arrival Hour
+Arrival Minute
+Arrival Dayofweek
+Crawl_Dep_Days
